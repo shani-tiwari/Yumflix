@@ -86,10 +86,10 @@ async function registerFoodPartner(req, res) {
 
     const hashPassword = await bcrypt.hash(password, 10);
 
-    const user = await foodPartnerModel.create({fullName, email, password: hashPassword});
+    const foodPartner = await foodPartnerModel.create({fullName, email, password: hashPassword});
 
     const token = jwt.sign({
-        id: user._id, // unique data
+        id: foodPartner._id, // unique data
     }, process.env.JWT_SECRET || 'default_secret');
 
     // saving the token into the cookies
@@ -97,10 +97,10 @@ async function registerFoodPartner(req, res) {
 
     res.status(201).json({ 
         msg: 'food Partner registered successfully', 
-        user:{ 
-            _id: user._id, 
-            email: user.email, 
-            fullName: user.fullName 
+        foodPartner:{ 
+            _id: foodPartner._id, 
+            email: foodPartner.email, 
+            fullName: foodPartner.fullName 
         } 
     });
 };
@@ -108,23 +108,23 @@ async function registerFoodPartner(req, res) {
 async function loginFoodPartner(req, res) {
     const {email, password} = req.body;
 
-    const user = await foodPartnerModel.findOne({ email });
-    if(!user){ res.status(400).json({ msg: 'invaild creadientals'}) };  // email dosen't exist
+    const foodPartner = await foodPartnerModel.findOne({ email });
+    if(!foodPartner){ res.status(400).json({ msg: 'invaild creadientals'}) };  // email dosen't exist
 
-    const isPasswordVaild = bcrypt.compare(password, user.password);
+    const isPasswordVaild = bcrypt.compare(password, foodPartner.password);
     if(!isPasswordVaild) { res.status(400).json({ msg: 'invaild creadientals'}) }; // email exist, password not
 
     const token = jwt.sign({
-        id:user._id,
+        id:foodPartner._id,
     }, process.env.JWT_SECRET);
 
     res.cookie("token", token, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
     res.status(201).json({ 
         msg: ' Food Partner login successful', 
-        user:{ 
-            _id: user._id, 
-            email: user.email, 
-            fullName: user.fullName 
+        foodPartner:{ 
+            _id: foodPartner._id, 
+            email: foodPartner.email, 
+            fullName: foodPartner.fullName 
         } 
     });
 
@@ -133,7 +133,7 @@ async function loginFoodPartner(req, res) {
 function logoutFoodPartner(req, res){
     res.clearCookie("token");
     res.status(200).json({ msg: "logout food partner successfully"});
-}
+};
 
 
 
