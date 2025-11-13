@@ -9,7 +9,7 @@ app.use(express.json()); // help server to read data - came in req.body
 
 app.get('/', (req, res) => {
     res.send('hii');
-})
+});
 app.use('/auth', authRoutes);
 app.use('/food', foodRoutes);
 

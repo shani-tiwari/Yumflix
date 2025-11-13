@@ -12,10 +12,9 @@ async function uploadFile(fileBuffer, fileName) {
       file: fileBuffer, // directly pass the buffer
       fileName: fileName,
     });
-    console.log(response);
     return response;
   } catch (error) {
-    console.error("Upload failed:", error);
+    console.error("Media Upload failed:", error);
     throw error;
   }
 }
