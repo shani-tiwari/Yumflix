@@ -75,7 +75,7 @@ async function logoutUser(req, res){
 
 // Food Partner Authentication
 async function registerFoodPartner(req, res) {
-    const {fullName, email, password} =  req.body;  // express.json() - middleware will be used so that tha data can be read here
+    const {fullName, email, password, phone, address, contactName} =  req.body;  // express.json() - middleware will be used so that tha data can be read here
 
     const exists = await foodPartnerModel.findOne({ email });
     if(exists){ 
@@ -86,7 +86,7 @@ async function registerFoodPartner(req, res) {
 
     const hashPassword = await bcrypt.hash(password, 10);
 
-    const foodPartner = await foodPartnerModel.create({fullName, email, password: hashPassword});
+    const foodPartner = await foodPartnerModel.create({fullName, email, password: hashPassword, phone, address, contactName});
 
     const token = jwt.sign({
         id: foodPartner._id, // unique data
@@ -100,7 +100,10 @@ async function registerFoodPartner(req, res) {
         foodPartner:{ 
             _id: foodPartner._id, 
             email: foodPartner.email, 
-            fullName: foodPartner.fullName 
+            fullName: foodPartner.fullName ,
+            phone: foodPartner.phone, 
+            address: foodPartner.address, 
+            contactName: foodPartner.contactName,
         } 
     });
 };
