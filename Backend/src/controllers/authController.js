@@ -1,7 +1,9 @@
 const userModel = require('../models/user.model');
+const foodPartnerModel = require('../models/foodPartner.model');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+// User Authentication
 async function registerUser(req, res, next){
     const {fullName, email, password} =  req.body;  // express.json() - middleware will be used so that tha data can be read here
 
@@ -38,7 +40,7 @@ async function registerUser(req, res, next){
     // next();
 
 
-}
+};
 
 async function loginUser(req, res) {
     const {email, password} = req.body;
@@ -63,8 +65,79 @@ async function loginUser(req, res) {
         } 
     });
 
+};
+
+async function logoutUser(req, res){
+    res.clearCookie("token");
+    res.status(200).json({ msg: 'logout'});
+};
+
+
+// Food Partner Authentication
+async function registerFoodPartner(req, res) {
+    const {fullName, email, password} =  req.body;  // express.json() - middleware will be used so that tha data can be read here
+
+    const exists = await foodPartnerModel.findOne({ email });
+    if(exists){ 
+        return res.status(400).json({
+            msg: 'food partner account already registered'
+        }) 
+    };
+
+    const hashPassword = await bcrypt.hash(password, 10);
+
+    const user = await foodPartnerModel.create({fullName, email, password: hashPassword});
+
+    const token = jwt.sign({
+        id: user._id, // unique data
+    }, process.env.JWT_SECRET || 'default_secret');
+
+    // saving the token into the cookies
+    res.cookie("token", token, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
+
+    res.status(201).json({ 
+        msg: 'food Partner registered successfully', 
+        user:{ 
+            _id: user._id, 
+            email: user.email, 
+            fullName: user.fullName 
+        } 
+    });
+};
+
+async function loginFoodPartner(req, res) {
+    const {email, password} = req.body;
+
+    const user = await foodPartnerModel.findOne({ email });
+    if(!user){ res.status(400).json({ msg: 'invaild creadientals'}) };  // email dosen't exist
+
+    const isPasswordVaild = bcrypt.compare(password, user.password);
+    if(!isPasswordVaild) { res.status(400).json({ msg: 'invaild creadientals'}) }; // email exist, password not
+
+    const token = jwt.sign({
+        id:user._id,
+    }, process.env.JWT_SECRET);
+
+    res.cookie("token", token, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
+    res.status(201).json({ 
+        msg: ' Food Partner login successful', 
+        user:{ 
+            _id: user._id, 
+            email: user.email, 
+            fullName: user.fullName 
+        } 
+    });
+
+};
+
+function logoutFoodPartner(req, res){
+    res.clearCookie("token");
+    res.status(200).json({ msg: "logout food partner successfully"});
 }
 
+
+
 module.exports = {
-    registerUser, loginUser
+    registerUser, loginUser, logoutUser, 
+    registerFoodPartner, loginFoodPartner, logoutFoodPartner
 }
