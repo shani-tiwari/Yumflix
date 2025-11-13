@@ -2,17 +2,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-  // fullName: {
-  //   type: String,
-  //   required: true,
-  //   trim: true,
-  // },
-  igName: {
+  fullName: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
-    lowercase: true,
   },
   email: {
     type: String,
