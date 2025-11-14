@@ -1,18 +1,29 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from '../pages/general/Home';
+import Saved from '../pages/general/Saved';
+import UserLogin from '../pages/auth/UserLogin';
+import BottomNav from '../components/BottomNav';
+import Profile from '../pages/food-partner/Profile';
+import UserRegister from '../pages/auth/UserRegister';
+import ChooseRegister from '../pages/auth/ChooseRegister';
+import CreateFood from '../pages/food-partner/CreateFood';
+import FoodPartnerLogin from '../pages/auth/FoodPartnerLogin';
+import FoodPartnerRegister from '../pages/auth/FoodPartnerRegister';
+
 
 function AppRoutes() {
   return (
     <Router>
         <Routes>
-                <Route path="/" element={<> <Home /><BottomNav /> </>} />
+                <Route path="/" element={<> <Home /> <BottomNav /> </>} />
                 <Route path="/register" element={<ChooseRegister />} />
-                <Route path="/user/register" element={<UserRegister />} />
-                <Route path="/user/login" element={<UserLogin />} />
-                <Route path="/food-partner/register" element={<FoodPartnerRegister />} />
-                <Route path="/food-partner/login" element={<FoodPartnerLogin />} />
-                {/* <Route path="/saved" element={<><Saved /><BottomNav /></>} />
+                <Route path="/auth/user/register" element={<UserRegister />} />
+                <Route path="/auth/user/login" element={<UserLogin />} />
+                <Route path="/auth/food-partner/register" element={<FoodPartnerRegister />} />
+                <Route path="/auth/food-partner/login" element={<FoodPartnerLogin />} />
+                <Route path="/saved" element={<><Saved /><BottomNav /></>} />
                 <Route path="/create-food" element={<CreateFood />} />
-                <Route path="/food-partner/:id" element={<Profile />} /> */}
+                <Route path="/auth/food-partner/:id" element={<Profile />} />
         </Routes>
     </Router>
   )
