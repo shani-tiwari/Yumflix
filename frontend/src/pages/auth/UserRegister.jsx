@@ -39,7 +39,7 @@ const UserRegister = () => {
                     <p className="auth-subtitle">Join to explore and enjoy delicious meals.</p>
                 </header>
                 <nav className="auth-alt-action" style={{ marginTop: '-4px' }}>
-                    <strong style={{ fontWeight: 600 }}>Switch:</strong> <Link to="/user/register">User</Link> • <Link to="/food-partner/register">Food partner</Link>
+                    <strong style={{ fontWeight: 600 }}>Switch:</strong> <Link to="/auth/user/register">User</Link> • <Link to="/auth/food-partner/register">Food partner</Link>
                 </nav>
                 <form className="auth-form" onSubmit={handleSubmit} noValidate>
                     <div className="two-col">
@@ -63,7 +63,7 @@ const UserRegister = () => {
                     <button className="auth-submit" type="submit">Sign Up</button>
                 </form>
                 <div className="auth-alt-action">
-                    Already have an account? <Link to="/user/login">Sign in</Link>
+                    Already have an account? <Link to="/auth/user/login">Sign in</Link>
                 </div>
             </div>
         </div>

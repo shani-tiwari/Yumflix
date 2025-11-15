@@ -1,4 +1,4 @@
-import React from "react";
+
 import "../../styles/auth-shared.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -66,7 +66,7 @@ const UserLogin = () => {
           </button>
         </form>
         <div className="auth-alt-action">
-          New here? <a href="/user/register">Create account</a>
+          New here? <a href="/auth/user/register">Create account</a>
         </div>
       </div>
     </div>

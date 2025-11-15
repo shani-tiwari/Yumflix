@@ -116,9 +116,12 @@ button.auth-submit:focus-visible { outline: 2px solid var(--color-accent-hover);
 
 /* Responsive */
 @media (max-width: 480px) {
-  .auth-card { padding: var(--space-5) var(--space-5) var(--space-4); }
-  .two-col { flex-direction: column; }
+  .auth-card         { padding: var(--space-3) var(--space-3) var(--space-2); }
+  .two-col           { flex-direction: column;                                }
+  .field-group input { padding: var(--space-1) var(--space-2);                }
+  .field-group label { font-size: .4rem;                                      }
+  .auth-title        { font-size: 1.2rem; margin-bottom: var(--space-1);        }
 }
 
 /* Smooth transitions for theme change */
-body, .auth-card, .field-group input { transition: background 200ms ease, color 200ms ease, border-color 200ms ease; }
+body, .auth-card, .field-group input { transition: background 200ms ease, color 200ms ease, border-color 200ms ease; } 
