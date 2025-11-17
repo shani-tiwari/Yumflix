@@ -58,7 +58,9 @@ const ReelFeed = ({ items = [], onLike, onSave, emptyMessage = 'No videos yet.' 
 
             <div className="reel-overlay">
               <div className="reel-overlay-gradient" aria-hidden="true" />
+
               <div className="reel-actions">
+
                 <div className="reel-action-group">
                   <button
                     onClick={onLike ? () => onLike(item) : undefined}
@@ -85,14 +87,15 @@ const ReelFeed = ({ items = [], onLike, onSave, emptyMessage = 'No videos yet.' 
                   <div className="reel-action__count">{item.savesCount ?? item.bookmarks ?? item.saves ?? 0}</div>
                 </div>
 
-                <div className="reel-action-group">
+                {/* <div className="reel-action-group">
                   <button className="reel-action" aria-label="Comments">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" />
                     </svg>
                   </button>
                   <div className="reel-action__count">{item.commentsCount ?? (Array.isArray(item.comments) ? item.comments.length : 0)}</div>
-                </div>
+                </div> */}
+
               </div>
 
               <div className="reel-content">
