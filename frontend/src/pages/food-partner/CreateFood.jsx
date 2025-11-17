@@ -5,11 +5,11 @@ import '../../styles/create-food.css';
 import { useNavigate } from 'react-router-dom';
 
 const CreateFood = () => {
-    const [ name, setName ] = useState('');
+    const [ name, setName ]               = useState('');
+    const [ videoURL, setVideoURL ]       = useState('');
+    const [ videoFile, setVideoFile ]     = useState(null);
+    const [ fileError, setFileError ]     = useState('');
     const [ description, setDescription ] = useState('');
-    const [ videoFile, setVideoFile ] = useState(null);
-    const [ videoURL, setVideoURL ] = useState('');
-    const [ fileError, setFileError ] = useState('');
     const fileInputRef = useRef(null);
 
     const navigate = useNavigate();
@@ -157,7 +157,7 @@ const CreateFood = () => {
                     </div>
 
                     <div className="form-actions">
-                        <button className="btn-primary" type="submit" disabled={isDisabled}>
+                        <button className="btn-primary"  type="submit" disabled={isDisabled}>
                             Save Food
                         </button>
                     </div>

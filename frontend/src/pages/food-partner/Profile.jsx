@@ -12,7 +12,6 @@ const Profile = () => {
     useEffect(() => {
         axios.get(`http://localhost:3000/food-partner/${id}`, { withCredentials: true })
             .then(response => {
-                console.log(response.data);
                 setProfile(response.data.foodPartner)
                 setVideos(response.data.foodPartner.foodItems)
             })
@@ -31,7 +30,7 @@ const Profile = () => {
 
                     <div className="profile-info">
                         <h1 className="profile-pill profile-business" title="Business name">
-                            {profile?.name}
+                            {profile?.fullName}
                         </h1>
                         <p className="profile-pill profile-address" title="Address">
                             {profile?.address}
@@ -41,13 +40,9 @@ const Profile = () => {
 
                 <div className="profile-stats" role="list" aria-label="Stats">
                     <div className="profile-stat" role="listitem">
-                        <span className="profile-stat-label">total meals</span>
+                        <span className="profile-stat-label">total meals - </span>
                         <span className="profile-stat-value">{videos.length}</span>
                     </div>
-                    {/* <div className="profile-stat" role="listitem">
-                        <span className="profile-stat-label">customer served</span>
-                        <span className="profile-stat-value">{profile?.customersServed}</span>
-                    </div> */}
                 </div>
             </section>
 
