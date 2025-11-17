@@ -4,10 +4,10 @@ import axios from 'axios';
 import '../../styles/reels.css'
 import ReelFeed from '../../components/ReelFeed'
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast'
 
 const Home = () => {
     const [ videos, setVideos ] = useState([])
-    // Autoplay behavior is handled inside ReelFeed
 
     const navigate = useNavigate();
 
@@ -21,27 +21,33 @@ const Home = () => {
                 // console.error('error while fetching');
             });
     }, []);
-    // Using local refs within ReelFeed; keeping map here for dependency parity if needed
 
     async function likeVideo(item) {
-
-        const response = await axios.post("http://localhost:3000/food/like", { foodId: item._id }, {withCredentials: true})
-
-        if(response.data.like){
-            setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, likeCount: v.likeCount + 1 } : v))
-        }else{
-            setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, likeCount: v.likeCount - 1 } : v))
+        try {
+            const response = await axios.post("http://localhost:3000/food/like", { foodId: item._id }, {withCredentials: true})
+    
+            if(response.data.like){
+                setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, likeCount: v.likeCount + 1 } : v))
+            }else{
+                setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, likeCount: v.likeCount - 1 } : v))
+            }
+        } catch (error) {
+            toast.error("only user's can like videos");
         }
         
-    }
+    };
 
     async function saveVideo(item) {
-        const response = await axios.post("http://localhost:3000/food/save", { foodId: item._id }, { withCredentials: true })
-        
-        if(response.data.save){
-            setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, savesCount: v.savesCount + 1 } : v))
-        }else{
-            setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, savesCount: v.savesCount - 1 } : v))
+        try {
+            const response = await axios.post("http://localhost:3000/food/save", { foodId: item._id }, { withCredentials: true })
+            
+            if(response.data.save){
+                setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, savesCount: v.savesCount + 1 } : v))
+            }else{
+                setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, savesCount: v.savesCount - 1 } : v))
+            }  
+        } catch (error) {
+            toast.error("only user's can save videos");
         }
     }
 

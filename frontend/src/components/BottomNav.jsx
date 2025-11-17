@@ -1,4 +1,3 @@
-import React from 'react'
 import { NavLink } from 'react-router-dom'
 import '../styles/bottom-nav.css'
 
@@ -35,7 +34,7 @@ const BottomNav = () => {
               <path d="M5.5 21a6 6 0 0 1 13 0" />
             </svg>
           </span>
-          <span className="bottom-nav__label">Accounts</span>
+          <span className="bottom-nav__label">Switch</span>
         </NavLink>
       </div>
     </nav>

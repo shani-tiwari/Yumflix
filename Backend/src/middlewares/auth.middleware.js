@@ -30,6 +30,7 @@ async function authUserMware(req, res, next) {
     // verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET); // verified - decoded get all data
     const user = await userModel.findById(decoded.id);
+    // const food = await foodPartnerModel.findById(decoded.id);
     req.user = user; // creating new property and setting value
     next();
   } catch (error) {

@@ -112,12 +112,10 @@ async function registerFoodPartner(req, res) {
 
 async function loginFoodPartner(req, res) {
     const {email, password} = req.body;
-    console.log(email, password);
 
     const foodPartner = await foodPartnerModel.findOne({ email });
     if(!foodPartner){ res.status(400).json({ msg: 'invaild creadientals'}) };  // email dosen't exist
     
-    console.log(foodPartner.password);
     // const isPasswordVaild = bcrypt.compare(password, foodPartner.password);
     const isPasswordVaild = bcrypt.compare(password, "$2b$10$03jxvwbHHRMGqNmCqb57D..4AEBDGfG6PeDYDoQWo.HNhhvgvzkYy");
     if(!isPasswordVaild) { res.status(400).json({ msg: 'invaild creadientals'}) }; // email exist, password not

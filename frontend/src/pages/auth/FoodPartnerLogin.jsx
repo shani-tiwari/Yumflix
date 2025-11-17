@@ -19,9 +19,7 @@ const FoodPartnerLogin = () => {
       password
     }, { withCredentials: true });  // true - to save cookies
 
-    // console.log(response.data);
-
-    navigate("/create-food"); // Redirect to create food page after login
+    navigate(`/food-partner/${response.data.foodPartner._id}`,  { replace: true }); // Redirect to create food page after login
 
   };
 

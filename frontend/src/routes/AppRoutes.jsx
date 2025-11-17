@@ -63,7 +63,7 @@ function AppRoutes() {
 
               <Route 
                 path="/food-partner/:id" 
-                element={<><Profile/> <BottomNav/> </>} 
+                element={<> <Profile/> <BottomNav/> </>} 
               />
 
         </Routes>
