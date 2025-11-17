@@ -9,6 +9,7 @@ import CreateFood from '../pages/food-partner/CreateFood';
 import FoodPartnerLogin from '../pages/auth/FoodPartnerLogin';
 import FoodPartnerRegister from '../pages/auth/FoodPartnerRegister';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Accounts from '../pages/auth/Accounts';
 
 
 function AppRoutes() {
@@ -48,6 +49,11 @@ function AppRoutes() {
               <Route 
                 path="/saved" 
                 element={<> <Saved/><BottomNav/> </>} 
+              />
+
+              <Route 
+                path="/accounts" 
+                element={<> <Accounts/> <BottomNav/> </>} 
               />
 
               <Route 

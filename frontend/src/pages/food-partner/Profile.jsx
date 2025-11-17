@@ -1,5 +1,5 @@
 
-import { useState, useEffect, use } from 'react'
+import { useState, useEffect } from 'react'
 import '../../styles/profile.css'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
@@ -59,8 +59,6 @@ const Profile = () => {
                             className="profile-grid-video"
                             style={{ objectFit: 'cover', width: '100%', height: '100%' }}
                             src={v.video} muted ></video>
-
-
                     </div>
                 ))}
             </section>

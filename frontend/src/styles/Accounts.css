@@ -1,0 +1,85 @@
+@import "./theme.css";
+
+.account-card {
+  width: 400px;
+  padding: 32px 16px 24px 16px;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-sizing: border-box;
+  text-align: center;
+  color: #ddd;
+  box-shadow: var(--shadow-md);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logout-btn {
+  display: block;
+  margin: 0 auto 30px auto;
+  padding: 10px 38px;
+  box-shadow: var(--shadow-md);
+  border-radius: 8px;
+  border: none;
+  background: rgb(202, 4, 4);
+  color: #ddd;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all ease-in 0.3s;
+}
+.logout-btn:active{
+    animation: click 0.3s ease-in;
+}
+@keyframes click {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+
+/* .account-type-container {
+  margin-top: 10px;
+} */
+
+.account-type-label {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.account-type-list {
+  list-style: disc inside;
+  padding: 0;
+  font-size: 1.16rem;
+  margin-bottom: 9px;
+}
+
+.account-type-list li {
+  margin-bottom: 6px;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .account-card {
+    max-width: 80vw;
+    padding: 22px 8px 16px 8px;
+    font-size: 1rem;
+  }
+  .logout-btn {
+    font-size: 1.07rem;
+    padding: 8px 0px;
+    min-width: 40vw;
+  }
+  .account-type-label {
+    font-size: 1.07rem;
+    margin-bottom: 12px;
+  }
+  .account-type-list {
+    font-size: 1rem;
+  }
+}
