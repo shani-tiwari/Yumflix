@@ -1,7 +1,7 @@
 
 import "../../styles/auth-shared.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { replace, useNavigate } from "react-router-dom";
 
 const UserLogin = () => {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const UserLogin = () => {
       { withCredentials: true }
     );
 
-    navigate("/"); // Redirect to home after login
+    navigate("/", {replace: true}); // Redirect to home after login
   };
 
   return (
