@@ -18,8 +18,7 @@
   box-shadow: var(--shadow-sm);
   padding: var(--space-6);
   display: flex;
-  /* flex-direction: column; */
-  justify-content: space-evenly;
+  justify-content: space-between;
   gap: var(--space-8);
 }
 
@@ -28,7 +27,6 @@
   grid-template-columns: 120px 1fr;
   align-items: center;
   gap: var(--space-6);
-  /* background: #000; */
 }
 
 .profile-avatar {
@@ -63,18 +61,26 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-6);
-  /* padding-top: var(--space-6); */
   align-items: center;
-  /* background: #000; */
 }
-
+.profile-stats .create-food{
+  background-color: rgb(11, 122, 11);
+  border: 1px solid white;
+  font-weight: 600;
+  font-style: italic;
+  transition: all ease 0.3s;
+}
+.profile-stats .create-food:hover{
+  color: white;
+  font-size: 1.03rem;
+}
 .profile-stat {
   /* display: grid;
   grid-template-rows: auto auto; */
   display: flex;
   align-items: center;
   justify-items: center;
-  gap: var(--space-6);
+  gap: var(--space-2);
   border-radius: 12px;
   padding: 10px 14px;
   border: 1px solid var(--color-border);
@@ -82,12 +88,12 @@
 }
 
 .profile-stat-label {
-  font-size: 1.15rem;
-  color: var(--color-text-secondary);
+  font-size: 1.1rem;
+  color: var(--color-text-primary);
 }
 
 .profile-stat-value {
-  font-size: 2rem;
+  font-size: 1.1rem;
   font-weight: 600;
 }
 

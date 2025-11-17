@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import '../../styles/profile.css'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const Profile = () => {
     const { id }                  = useParams()
@@ -36,14 +37,17 @@ const Profile = () => {
                             {profile?.address}
                         </p>
                     </div>
+
                 </div>
 
                 <div className="profile-stats" role="list" aria-label="Stats">
                     <div className="profile-stat" role="listitem">
-                        <span className="profile-stat-label">total meals - </span>
+                        <span className="profile-stat-label">total meals -</span>
                         <span className="profile-stat-value">{videos.length}</span>
                     </div>
+                    <Link className="profile-pill create-food" to={'/create-food'}> Create More </Link>
                 </div>
+
             </section>
 
             <hr className="profile-sep" />
