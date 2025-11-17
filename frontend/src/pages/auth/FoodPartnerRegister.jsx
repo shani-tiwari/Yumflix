@@ -19,7 +19,7 @@ const FoodPartnerRegister = () => {
     const address = e.target.address.value;
 
     axios.post("http://localhost:3000/auth/food-partner/register", {
-      name:businessName,
+      fullName:businessName,
       contactName,
       phone,
       email,
@@ -27,7 +27,7 @@ const FoodPartnerRegister = () => {
       address
     }, { withCredentials: true })
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         navigate("/create-food"); // Redirect to create food page after successful registration
       })
       .catch(error => {

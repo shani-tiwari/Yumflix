@@ -10,24 +10,22 @@ const UserRegister = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const email = e.target.email.value;
-        const lastName = e.target.lastName.value;
+        const email    = e.target.email.value;
         const password = e.target.password.value;
-        const firstName = e.target.firstName.value;
-
+        const fullName = e.target.fullname.value;
+        // const lastName = e.target.lastName.value;
 
         const response = await axios.post("http://localhost:3000/auth/user/register", {
-            fullName: firstName + " " + lastName,
             email,
+            fullName,
             password
         },
         {
             withCredentials: true // save cookies
         });
 
-        console.log(response.data);
-
-        navigate("/")
+        // console.log(response.data);
+        navigate("/auth/user/login");
 
     };
 
@@ -44,13 +42,13 @@ const UserRegister = () => {
                 <form className="auth-form" onSubmit={handleSubmit} noValidate>
                     <div className="two-col">
                         <div className="field-group">
-                            <label htmlFor="firstName">First Name</label>
-                            <input id="firstName" name="firstName" placeholder="Jane" autoComplete="given-name" />
+                            <label htmlFor="firstName">Full Name</label>
+                            <input id="firstName" name="fullname" placeholder="Jane Doe" autoComplete="given-name" />
                         </div>
-                        <div className="field-group">
+                        {/* <div className="field-group">
                             <label htmlFor="lastName">Last Name</label>
                             <input id="lastName" name="lastName" placeholder="Doe" autoComplete="family-name" />
-                        </div>
+                        </div> */}
                     </div>
                     <div className="field-group">
                         <label htmlFor="email">Email</label>
