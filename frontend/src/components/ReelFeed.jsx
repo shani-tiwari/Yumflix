@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 // Reusable feed for vertical reels
@@ -98,9 +98,10 @@ const ReelFeed = ({ items = [], onLike, onSave, emptyMessage = 'No videos yet.' 
               <div className="reel-content">
                 <p className="reel-description" title={item.description}>{item.description}</p>
                 {item.foodPartner && (
-                  <Link className="reel-btn" to={"/food-partner/" + item.foodPartner} aria-label="Visit store">Visit store</Link>
+                  <Link className="reel-btn" to={"/food-partner/" + item.foodPartner} aria-label="Visit store"> store <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z"></path></svg></Link>
                 )}
               </div>
+
             </div>
           </section>
         ))}

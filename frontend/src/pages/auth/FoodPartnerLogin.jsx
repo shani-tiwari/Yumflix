@@ -12,6 +12,7 @@ const FoodPartnerLogin = () => {
 
     const email    = e.target.email.value;
     const password = e.target.password.value;
+    // console.log(email, password);
 
     const response = await axios.post("http://localhost:3000/auth/food-partner/login", {
       email,

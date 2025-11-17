@@ -12,8 +12,12 @@ const Profile = () => {
     useEffect(() => {
         axios.get(`http://localhost:3000/food-partner/${id}`, { withCredentials: true })
             .then(response => {
+                console.log(response.data);
                 setProfile(response.data.foodPartner)
                 setVideos(response.data.foodPartner.foodItems)
+            })
+            .catch((e) => {
+                console.error(e);
             })
     }, [ id ])
 
@@ -38,12 +42,12 @@ const Profile = () => {
                 <div className="profile-stats" role="list" aria-label="Stats">
                     <div className="profile-stat" role="listitem">
                         <span className="profile-stat-label">total meals</span>
-                        <span className="profile-stat-value">{profile?.totalMeals}</span>
+                        <span className="profile-stat-value">{videos.length}</span>
                     </div>
-                    <div className="profile-stat" role="listitem">
+                    {/* <div className="profile-stat" role="listitem">
                         <span className="profile-stat-label">customer served</span>
                         <span className="profile-stat-value">{profile?.customersServed}</span>
-                    </div>
+                    </div> */}
                 </div>
             </section>
 
@@ -53,12 +57,11 @@ const Profile = () => {
                 {videos.map((v) => (
                     <div key={v.id} className="profile-grid-item">
                         {/* Placeholder tile; replace with <video> or <img> as needed */}
-
-
                         <video
                             className="profile-grid-video"
                             style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-                            src={v.video} muted ></video>
+                            src={v.video} muted >
+                        </video>
                     </div>
                 ))}
             </section>

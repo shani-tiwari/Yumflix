@@ -37,7 +37,7 @@ const UserRegister = () => {
                     <p className="auth-subtitle">Join to explore and enjoy delicious meals.</p>
                 </header>
                 <nav className="auth-alt-action" style={{ marginTop: '-4px' }}>
-                    <strong style={{ fontWeight: 600 }}>Switch:</strong> <Link to="/auth/user/register">User</Link> • <Link to="/auth/food-partner/register">Food partner</Link>
+                    <strong style={{ fontWeight: 600 }}>Switch : </strong> <Link to="/auth/user/register">User</Link> • <Link to="/auth/food-partner/register">Food partner</Link>
                 </nav>
                 <form className="auth-form" onSubmit={handleSubmit} noValidate>
                     <div className="two-col">

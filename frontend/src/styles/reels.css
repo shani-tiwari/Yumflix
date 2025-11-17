@@ -60,9 +60,9 @@
 
 .reel-content {
   position: relative;
-  width: 100%;
+  width: fit-content;
   padding: var(--space-6);
-  padding-bottom: calc(env(safe-area-inset-bottom, 0) + 72px); /* make space for bottom nav */
+  margin-bottom: calc(env(safe-area-inset-bottom, 0) + 42px); /* make space for bottom nav */
   display: flex;
   flex-direction: column;
   padding-right: 4.5rem;
@@ -88,15 +88,20 @@
   align-self: flex-start;
   background: var(--color-accent);
   color: #fff;
-  border-radius: 999px;
-  padding: 10px 16px;
-  font-weight: 700;
-  letter-spacing: .3px;
+  border-radius: 12px;
+  padding: 8px 14px;
+  font-weight: 400;
+  letter-spacing: .4px;
   text-decoration: none;
   box-shadow: var(--shadow-md);
   transition: transform var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
+  text-align: center;
 }
-
+.reel-btn svg{
+  width: 20px;
+  height: 20px;
+  margin-bottom: -5px;
+}
 .reel-btn:hover { background: var(--color-accent-hover); }
 .reel-btn:active { transform: translateY(1px); }
 .reel-btn:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }

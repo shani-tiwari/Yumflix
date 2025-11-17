@@ -19,7 +19,7 @@ router.post("/",
 
 
 // GET - /food/ - [protected] - for users
-router.get("/", 
+router.get("/videos", 
     authUserMware, 
     getFoodItems);
 

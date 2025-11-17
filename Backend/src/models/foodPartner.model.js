@@ -17,6 +17,7 @@ const foodPartnerSchema = new Schema({
   },
   password: {
     type: String,
+    required: true,
   },
   contactName: {
      type: String,

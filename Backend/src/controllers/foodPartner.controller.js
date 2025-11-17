@@ -3,6 +3,7 @@ const foodModel = require('../models/food.model');
 
 async function getFoodPartnerById(req, res) {
 
+    console.log('finding food partner');
     const foodPartnerId = req.params.id;
 
     const foodPartner = await foodPartnerModel.findById(foodPartnerId)

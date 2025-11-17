@@ -12,15 +12,15 @@ const Home = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("http://localhost:3000/food/", { withCredentials: true })
+        axios.get("http://localhost:3000/food/videos", { withCredentials: true })
             .then(response => {
-                setVideos(response.data.foodItems);
+                setVideos(response.data.foodItmes);
             })
             .catch(() => { 
-                navigate('/auth/user/register'); 
+                if(videos.length === 0) navigate('/auth/user/register'); 
+                // console.error('error while fetching');
             });
     }, []);
-    console.log(videos);
     // Using local refs within ReelFeed; keeping map here for dependency parity if needed
 
     async function likeVideo(item) {
@@ -28,10 +28,8 @@ const Home = () => {
         const response = await axios.post("http://localhost:3000/food/like", { foodId: item._id }, {withCredentials: true})
 
         if(response.data.like){
-            console.log("Video liked");
             setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, likeCount: v.likeCount + 1 } : v))
         }else{
-            console.log("Video unliked");
             setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, likeCount: v.likeCount - 1 } : v))
         }
         

@@ -3,6 +3,7 @@ const userModel = require("../models/user.model");
 const jwt = require("jsonwebtoken");
 
 async function authFoodPartnerMware(req, res, next) {
+  
   const token = req.cookies.token;
   if (!token) {
     return res.status(401).json({ msg: "login!!, Unauthorize Access" });
