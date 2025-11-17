@@ -87,7 +87,7 @@
 .reel-btn {
   align-self: flex-start;
   background: var(--color-accent);
-  color: #fff;
+  color: #fff !important;
   border-radius: 12px;
   padding: 8px 14px;
   font-weight: 400;
@@ -96,13 +96,14 @@
   box-shadow: var(--shadow-md);
   transition: transform var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
   text-align: center;
+  transition: all ease-in 0.3s;
 }
 .reel-btn svg{
   width: 20px;
   height: 20px;
   margin-bottom: -5px;
 }
-.reel-btn:hover { background: var(--color-accent-hover); }
+.reel-btn:hover { transform: scale(1.1);}
 .reel-btn:active { transform: translateY(1px); }
 .reel-btn:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 

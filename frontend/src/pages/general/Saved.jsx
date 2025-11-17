@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../../styles/reels.css'
 import axios from 'axios'
 import ReelFeed from '../../components/ReelFeed'
+import toast from 'react-hot-toast'
 
 const Saved = () => {
     const [ videos, setVideos ] = useState([])
@@ -19,6 +20,10 @@ const Saved = () => {
                     foodPartner: item.food.foodPartner,
                 }))
                 setVideos(savedFoods)
+            })
+            .catch((e) => {
+                // console.log(e);
+                toast.error('No Saved Videos yet');
             })
     }, [])
 

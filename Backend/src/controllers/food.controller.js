@@ -80,7 +80,7 @@ async function saveFood(req, res) {
     const isAlreadySaved = await saveModel.findOne({
         user: user._id,
         food: foodId
-    })
+    });
 
     if (isAlreadySaved) {
         await saveModel.deleteOne({
@@ -121,7 +121,7 @@ async function getSaveFood(req, res) {
 
     if (!savedFoods || savedFoods.length === 0) {
         return res.status(404).json({ message: "No saved foods found" });
-    }
+    };
 
     res.status(200).json({
         message: "Saved foods retrieved successfully",
