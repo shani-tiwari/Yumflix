@@ -10,7 +10,8 @@ app.use(cookieParser()); // middleware to save token in cookies
 app.use(express.json()); // help server to read data - came in req.body
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    // origin: "http://localhost:5173",
+    origin: "*",
     credentials: true,
 }));
 
