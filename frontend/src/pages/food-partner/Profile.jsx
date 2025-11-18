@@ -14,7 +14,7 @@ const Profile = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/food-partner/${id}`, {
+      .get(`https://yumflix.onrender.com/food-partner/${id}`, {
         withCredentials: true,
       })
       .then((response) => {

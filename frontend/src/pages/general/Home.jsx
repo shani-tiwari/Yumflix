@@ -13,7 +13,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("http://localhost:3000/food/videos", { withCredentials: true })
+        axios.get("https://yumflix.onrender.com/food/videos", { withCredentials: true })
             .then(response => {
                 setVideos(response.data.foodItmes);
             })
@@ -27,7 +27,7 @@ const Home = () => {
 
     async function likeVideo(item) {
         try {
-            const response = await axios.post("http://localhost:3000/food/like", { foodId: item._id }, {withCredentials: true})
+            const response = await axios.post("https://yumflix.onrender.com/food/like", { foodId: item._id }, {withCredentials: true})
     
             if(response.data.like){
                 setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, likeCount: v.likeCount + 1 } : v))
@@ -42,7 +42,7 @@ const Home = () => {
 
     async function saveVideo(item) {
         try {
-            const response = await axios.post("http://localhost:3000/food/save", { foodId: item._id }, { withCredentials: true })
+            const response = await axios.post("https://yumflix.onrender.com/food/save", { foodId: item._id }, { withCredentials: true })
             
             if(response.data.save){
                 setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, savesCount: v.savesCount + 1 } : v))

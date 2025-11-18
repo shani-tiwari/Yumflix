@@ -12,7 +12,7 @@ const UserLogin = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const response = await axios.post("http://localhost:3000/auth/user/login",
+    const response = await axios.post("https://yumflix.onrender.com/auth/user/login",
       {
         email,
         password,

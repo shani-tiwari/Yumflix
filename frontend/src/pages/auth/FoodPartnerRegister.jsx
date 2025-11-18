@@ -18,7 +18,7 @@ const FoodPartnerRegister = () => {
     const password = e.target.password.value;
     const address = e.target.address.value;
 
-    axios.post("http://localhost:3000/auth/food-partner/register", {
+    axios.post("https://yumflix.onrender.com/auth/food-partner/register", {
       fullName:businessName,
       contactName,
       phone,

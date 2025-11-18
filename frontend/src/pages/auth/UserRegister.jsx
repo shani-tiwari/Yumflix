@@ -15,7 +15,7 @@ const UserRegister = () => {
         const fullName = e.target.fullname.value;
         // const lastName = e.target.lastName.value;
 
-        const response = await axios.post("http://localhost:3000/auth/user/register", {
+        const response = await axios.post("https://yumflix.onrender.com/auth/user/register", {
             email,
             fullName,
             password

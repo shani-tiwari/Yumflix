@@ -14,7 +14,7 @@ const FoodPartnerLogin = () => {
     const password = e.target.password.value;
     // console.log(email, password);
 
-    const response = await axios.post("http://localhost:3000/auth/food-partner/login", {
+    const response = await axios.post("https://yumflix.onrender.com/auth/food-partner/login", {
       email,
       password
     }, { withCredentials: true });  // true - to save cookies
