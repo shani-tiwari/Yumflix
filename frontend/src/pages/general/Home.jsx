@@ -57,14 +57,14 @@ const Home = () => {
     return (
         <>
          <Helmet>
-      <title>Discover Delicious Food Videos & Top Food Partners | Yumflix</title>
-      <meta
-        name="description"
-        content="Watch delicious food videos, like and save your favorites, and explore profiles of top food partners."
-      />
-      <meta name="keywords" content="food videos, save food videos, food partners, cooking, recipes" />
-      <meta property="og:title" content="Discover Delicious Food Videos & Top Food Partners" />
-      <meta property="og:description" content="Watch, like, save, and interact with your favorite food videos and partners." />
+            <title>Discover Delicious Food Videos & Top Food Partners | Yumflix</title>
+            <meta
+                name="description"
+                content="Watch delicious food videos, like and save your favorites, and explore profiles of top food partners."
+            />
+            <meta name="keywords" content="food videos, save food videos, food partners, cooking, recipes" />
+            <meta property="og:title" content="Discover Delicious Food Videos & Top Food Partners" />
+            <meta property="og:description" content="Watch, like, save, and interact with your favorite food videos and partners." />
          </Helmet>
         <ReelFeed
             items={videos}
