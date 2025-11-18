@@ -5,6 +5,7 @@ import '../../styles/reels.css'
 import ReelFeed from '../../components/ReelFeed'
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast'
+import {Helmet} from 'react-helmet'
 
 const Home = () => {
     const [ videos, setVideos ] = useState([])
@@ -17,8 +18,10 @@ const Home = () => {
                 setVideos(response.data.foodItmes);
             })
             .catch(() => { 
-                if(videos.length === 0) navigate('/auth/user/register'); 
-                // console.error('error while fetching');
+                if(videos.length === 0) {
+                    navigate('/auth/user/register'); 
+                    // navigate('/');
+                };
             });
     }, []);
 
@@ -52,12 +55,24 @@ const Home = () => {
     }
 
     return (
+        <>
+         <Helmet>
+      <title>Discover Delicious Food Videos & Top Food Partners | YourAppName</title>
+      <meta
+        name="description"
+        content="Watch delicious food videos, like and save your favorites, and explore profiles of top food partners."
+      />
+      <meta name="keywords" content="food videos, save food videos, food partners, cooking, recipes" />
+      <meta property="og:title" content="Discover Delicious Food Videos & Top Food Partners" />
+      <meta property="og:description" content="Watch, like, save, and interact with your favorite food videos and partners." />
+         </Helmet>
         <ReelFeed
             items={videos}
             onLike={likeVideo}
             onSave={saveVideo}
             emptyMessage="No videos available."
         />
+        </>
     )
 }
 

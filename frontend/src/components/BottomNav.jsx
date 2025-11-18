@@ -1,3 +1,4 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom'
 import '../styles/bottom-nav.css'
 
@@ -41,4 +42,4 @@ const BottomNav = () => {
   )
 }
 
-export default BottomNav
+export default React.memo(BottomNav);

@@ -1,20 +1,25 @@
-import Home from '../pages/general/Home';
-import Saved from '../pages/general/Saved';
-import UserLogin from '../pages/auth/UserLogin';
-import BottomNav from '../components/BottomNav';
-import Profile from '../pages/food-partner/Profile';
-import UserRegister from '../pages/auth/UserRegister';
-import ChooseRegister from '../pages/auth/ChooseRegister';
-import CreateFood from '../pages/food-partner/CreateFood';
-import FoodPartnerLogin from '../pages/auth/FoodPartnerLogin';
-import FoodPartnerRegister from '../pages/auth/FoodPartnerRegister';
+import React, {Suspense} from 'react';
+
+const Home                = React.lazy(() => import('../pages/general/Home'));
+const Saved               = React.lazy(() => import('../pages/general/Saved'));
+const Accounts            = React.lazy(() => import('../pages/auth/Accounts'));
+const UserLogin           = React.lazy(() => import('../pages/auth/UserLogin'));
+const UserRegister        = React.lazy(() => import('../pages/auth/UserRegister'));
+const ChooseRegister      = React.lazy(() => import('../pages/auth/ChooseRegister'));
+const Profile             = React.lazy(() => import('../pages/food-partner/Profile'));
+const FoodPartnerLogin    = React.lazy(() => import('../pages/auth/FoodPartnerLogin'));
+const CreateFood          = React.lazy(() => import('../pages/food-partner/CreateFood'));
+const FoodPartnerRegister = React.lazy(() => import('../pages/auth/FoodPartnerRegister'));
+
+import BottomNav from'../components/BottomNav';
+import Loading from '../pages/general/Loading';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Accounts from '../pages/auth/Accounts';
 
 
 function AppRoutes() {
   return (
     <Router>
+      <Suspense fallback={<Loading/>}>
         <Routes>
               <Route 
                 path="/"                           
@@ -67,6 +72,7 @@ function AppRoutes() {
               />
 
         </Routes>
+      </Suspense>
     </Router>
   )
 }
