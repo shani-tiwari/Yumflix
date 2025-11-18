@@ -95,7 +95,7 @@ async function registerFoodPartner(req, res) {
     }, process.env.JWT_SECRET);
 
     // saving the token into the cookies
-    res.cookie("token", token);
+    res.cookie("token", token, {secure: true, sameSite: "None"});
 
     res.status(201).json({ 
         msg: 'food Partner registered successfully', 
