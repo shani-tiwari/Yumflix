@@ -39,7 +39,7 @@ const ReelFeed = ({ items = [], onLike, onSave, emptyMessage = 'No videos yet.' 
   return (
     <>
       <Helmet>
-        <title> Food Video </title>
+        <title> Yumflix </title>
         <meta name="description" content='Food Item Video' />
         <meta name="keywords" content={`food video, recipes, recipe, food recipe, food reel,  delicious food`} />
         <meta property="og:title" content={` Food Video`} />

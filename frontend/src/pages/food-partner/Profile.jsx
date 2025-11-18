@@ -37,7 +37,7 @@ const Profile = () => {
   return (
     <>
       <Helmet>
-        <title>{partner.name} | Food Partner on YourAppName</title>
+        <title>{partner.name} | Yumflix</title>
         <meta
           name="description"
           content={`${profile?.fullName} shares delicious food videos. Watch, like, save, and explore their recipes and profile.`}

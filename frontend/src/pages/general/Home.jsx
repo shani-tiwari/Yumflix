@@ -57,7 +57,7 @@ const Home = () => {
     return (
         <>
          <Helmet>
-      <title>Discover Delicious Food Videos & Top Food Partners | YourAppName</title>
+      <title>Discover Delicious Food Videos & Top Food Partners | Yumflix</title>
       <meta
         name="description"
         content="Watch delicious food videos, like and save your favorites, and explore profiles of top food partners."
