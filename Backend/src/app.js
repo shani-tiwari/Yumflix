@@ -9,9 +9,20 @@ const app = express();
 app.use(cookieParser()); // middleware to save token in cookies 
 app.use(express.json()); // help server to read data - came in req.body
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "https://yumflix-1-frontend.onrender.com/",
+  // add other known origins here
+];
 app.use(cors({
-    // origin: "http://localhost:5173",
-    origin: "*",
+    origin: (origin, callback) => {
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+        }
+        callback(new Error("Not allowed by CORS"));
+    },
     credentials: true,
 }));
 
