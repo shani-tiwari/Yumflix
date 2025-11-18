@@ -5,12 +5,15 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { useNavigate } from 'react-router-dom';
+
 
 const Profile = () => {
   const { id } = useParams();
   const [videos, setVideos] = useState([]);
   const [profile, setProfile] = useState(null);
   const [foodPartner, setFoodPartner] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios

@@ -26,7 +26,7 @@ async function registerUser(req, res, next){
     // saving the token into the cookies
     // res.cookie("token", token, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
     // res.cookie("token", token, { httpOnly: true, secure: false }); // or don't use it, so that the cookie from frontend can be saved
-    res.cookie("token", token); // or don't use it, so that the cookie from frontend can be saved
+    res.cookie("token", token, {secure: true, sameSite: "None"}); // or don't use it, so that the cookie from frontend can be saved
 
     res.status(201).json({ 
         msg: 'registered successfully', 
@@ -57,7 +57,7 @@ async function loginUser(req, res) {
         id:user._id,
     }, process.env.JWT_SECRET);
 
-    res.cookie("token", token);
+    res.cookie("token", token, , {secure: true, sameSite: "None"});
     res.status(201).json({ 
         msg: 'login successful', 
         user:{ 
